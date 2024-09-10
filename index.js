@@ -22,7 +22,7 @@ const detail=15
 const loader=new THREE.TextureLoader()
 const geometry=new THREE.IcosahedronGeometry(1,detail)
 const material=new THREE.MeshStandardMaterial({
-  map: loader.load("./textures/earthmap1K.jpg")
+  map: loader.load("./textures/jupitermap.jpg")
 })
 const earthMesh=new THREE.Mesh(geometry, material)
 earthGroup.add(earthMesh)
@@ -36,7 +36,7 @@ const lightsMat= new THREE.MeshBasicMaterial({
   blending:THREE.AdditiveBlending,
 })
 const lightMesh=new THREE.Mesh(geometry, lightsMat)
-earthGroup.add(lightMesh)
+// earthGroup.add(lightMesh)
 
 const cloudMat=new THREE.MeshStandardMaterial({
   // map:loader.load("./textures/05_earthcloudmaptrans.jpg"),
@@ -52,12 +52,12 @@ scene.add(stars)
 
 earthGroup.scale.setScalar(2.5)
 
-// const hemiLight=new THREE.HemisphereLight(0xffffff, 0xffffff)
-// scene.add(hemiLight)
+const hemiLight=new THREE.HemisphereLight(0xffffff, 0xdddddd)
+scene.add(hemiLight)
 
-const sunLight=new THREE.DirectionalLight(0xffffff)
-sunLight.position.set(-2,0.5, 1.5)
-scene.add(sunLight)
+// const sunLight=new THREE.DirectionalLight(0xffffff)
+// sunLight.position.set(-2,0.5, 1.5)
+// scene.add(sunLight)
 
 
 function animate(){
