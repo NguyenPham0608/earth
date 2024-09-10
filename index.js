@@ -55,15 +55,20 @@ earthGroup.scale.setScalar(2)
 // const hemiLight=new THREE.HemisphereLight(0xffffff, 0xffffff)
 // scene.add(hemiLight)
 
-const sunLight=new THREE.DirectionalLight(0xc9c9c9)
+const sunLight=new THREE.DirectionalLight(0xffffff)
 sunLight.position.set(-2,0.5, 1.5)
 scene.add(sunLight)
+
+const ambLight=new THREE.AmbientLight(0xdddddd)
+ambLight.position.set(2,-0.5, -1.5)
+scene.add(ambLight)
+
 function animate(){
   requestAnimationFrame(animate)
 
-  earthMesh.rotation.y+=0.002
-  lightMesh.rotation.y+=0.002
-  cloudMesh.rotation.y+=0.002
+  earthMesh.rotation.y+=0.004
+  lightMesh.rotation.y+=0.004
+  cloudMesh.rotation.y+=0.004
   controls.update()
 
   renderer.render(scene,camera)
