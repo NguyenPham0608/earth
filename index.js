@@ -15,7 +15,9 @@ document.body.appendChild(renderer.domElement)
 const earthGroup=new THREE.Group()
 scene.add(earthGroup)
 earthGroup.rotation.z=-23.4*Math.PI/180
-new OrbitControls(camera, renderer.domElement)
+const controls=new OrbitControls(camera, renderer.domElement)
+controls.enableDamping=true
+controls.DampingFactor=0.03
 const detail=15
 const loader=new THREE.TextureLoader()
 const geometry=new THREE.IcosahedronGeometry(1,detail)
@@ -48,6 +50,8 @@ cloudMesh.scale.setScalar(1.005)
 const stars=getStarField({numStars:3500})
 scene.add(stars)
 
+earthGroup.scale.setScalar(2)
+
 // const hemiLight=new THREE.HemisphereLight(0xffffff, 0xffffff)
 // scene.add(hemiLight)
 
@@ -60,7 +64,7 @@ function animate(){
   earthMesh.rotation.y+=0.002
   lightMesh.rotation.y+=0.002
   cloudMesh.rotation.y+=0.002
-
+  controls.update()
 
   renderer.render(scene,camera)
 }
