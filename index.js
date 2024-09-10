@@ -50,7 +50,7 @@ cloudMesh.scale.setScalar(1.005)
 const stars=getStarField({numStars:3500})
 scene.add(stars)
 
-earthGroup.scale.setScalar(2)
+earthGroup.scale.setScalar(2.5)
 
 // const hemiLight=new THREE.HemisphereLight(0xffffff, 0xffffff)
 // scene.add(hemiLight)
