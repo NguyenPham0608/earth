@@ -22,7 +22,7 @@ const detail=15
 const loader=new THREE.TextureLoader()
 const geometry=new THREE.IcosahedronGeometry(1,detail)
 const material=new THREE.MeshStandardMaterial({
-  map: loader.load("./textures/earthmap4K.jpg")
+  map: loader.load("./textures/earthmap1K.jpg")
 })
 const earthMesh=new THREE.Mesh(geometry, material)
 earthGroup.add(earthMesh)
@@ -32,7 +32,7 @@ const lightsMat= new THREE.MeshBasicMaterial({
   // color:0x00ff00,
   // transparent:true,
   // opacity:0.6
-  map:loader.load("./textures/earthlights4k.jpg"),
+  map:loader.load("./textures/earthlights1k.jpg"),
   blending:THREE.AdditiveBlending,
 })
 const lightMesh=new THREE.Mesh(geometry, lightsMat)
