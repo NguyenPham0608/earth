@@ -59,9 +59,6 @@ const sunLight=new THREE.DirectionalLight(0xffffff)
 sunLight.position.set(-2,0.5, 1.5)
 scene.add(sunLight)
 
-const ambLight=new THREE.AmbientLight(0xdddddd)
-ambLight.position.set(2,-0.5, -1.5)
-scene.add(ambLight)
 
 function animate(){
   requestAnimationFrame(animate)
