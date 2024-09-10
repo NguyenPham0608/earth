@@ -31,6 +31,7 @@ const material = new THREE.MeshPhongMaterial({
 });
 // material.map.colorSpace = THREE.SRGBColorSpace;
 const earthMesh = new THREE.Mesh(geometry, material);
+earthMesh.scale.setScalar(2.5)
 earthGroup.add(earthMesh);
 
 const lightsMat = new THREE.MeshBasicMaterial({
