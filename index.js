@@ -36,7 +36,7 @@ const lightsMat= new THREE.MeshBasicMaterial({
   blending:THREE.AdditiveBlending,
 })
 const lightMesh=new THREE.Mesh(geometry, lightsMat)
-earthGroup.add(lightMesh)
+// earthGroup.add(lightMesh)
 
 const cloudMat=new THREE.MeshStandardMaterial({
   // map:loader.load("./textures/05_earthcloudmaptrans.jpg"),
