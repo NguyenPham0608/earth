@@ -15,6 +15,7 @@ document.body.appendChild(renderer.domElement);
 // THREE.ColorManagement.enabled = true;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+const FS=true
 
 const earthGroup = new THREE.Group();
 earthGroup.rotation.z = -23.4 * Math.PI / 180;
@@ -22,7 +23,7 @@ scene.add(earthGroup);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping=true
 controls.DampFactor=0.03
-const detail = 16;
+const detail = 1;
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, detail);
 const material = new THREE.MeshPhongMaterial({
@@ -30,7 +31,7 @@ const material = new THREE.MeshPhongMaterial({
   specularMap: loader.load("./textures/earthspec1k.jpg"),
   bumpMap: loader.load("./textures/earthbump1k.jpg"),
   bumpScale: 0.04,
-  // flatShading:true
+  flatShading:FS
 });
 // material.map.colorSpace = THREE.SRGBColorSpace;
 const earthMesh = new THREE.Mesh(geometry, material);
@@ -39,7 +40,7 @@ earthGroup.add(earthMesh);
 const lightsMat = new THREE.MeshBasicMaterial({
   map: loader.load("./textures/earthlights1k.jpg"),
   blending: THREE.AdditiveBlending,
-  // flatShading:true
+  flatShading:FS
 
 });
 const lightsMesh = new THREE.Mesh(geometry, lightsMat);
@@ -52,7 +53,7 @@ const cloudsMat = new THREE.MeshStandardMaterial({
   blending: THREE.AdditiveBlending,
   alphaMap: loader.load('./textures/earthcloudmaptrans.jpg'),
   // alphaTest: 0.3,
-  // flatShading:true
+  flatShading:FS
 
 });
 const cloudsMesh = new THREE.Mesh(geometry, cloudsMat);
@@ -79,7 +80,7 @@ function animate() {
 
   earthMesh.rotation.y += 0.002;
   lightsMesh.rotation.y += 0.002;
-  cloudsMesh.rotation.y += 0.0023;
+  cloudsMesh.rotation.y += 0.002;
   glowMesh.rotation.y += 0.002;
   stars.rotation.y -= 0.0002;
   controls.update()
