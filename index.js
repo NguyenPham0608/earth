@@ -93,11 +93,11 @@ function animate(t=0) {
   wireMesh.rotation.y += 0.002;
   stars.rotation.y -= 0.0002;
 
-  const radius = 4;
-  sunLight.position.x = Math.cos(t/10000) * radius;
-  sunLight.position.z = Math.sin(t/10000) * radius;
+  // const radius = 4;
+  // sunLight.position.x = Math.cos(t/10000) * radius;
+  // sunLight.position.z = Math.sin(t/10000) * radius;
 
-  sunLight.lookAt(0, 0, 0);
+  // sunLight.lookAt(0, 0, 0);
 
   controls.update()
   renderer.render(scene, camera);
