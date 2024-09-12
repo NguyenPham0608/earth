@@ -106,8 +106,5 @@ function handleWindowResize () {
 
 
 window.addEventListener('resize', handleWindowResize, false);
-window.addEventListener("scroll", function(e){
-  earthGroup.scale.x+=0.01
-  earthGroup.scale.y+=0.01
-  earthGroup.scale.z+=0.01
-})
+
+
