@@ -18,7 +18,7 @@ renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 const FS=true
 
 const earthGroup = new THREE.Group();
-// earthGroup.rotation.z = -23.4 * Math.PI / 180;
+earthGroup.rotation.z = -23.4 * Math.PI / 180;
 scene.add(earthGroup);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping=true
