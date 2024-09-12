@@ -23,7 +23,7 @@ scene.add(earthGroup);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping=true
 controls.DampFactor=0.03
-const detail = 1;
+const detail = 2;
 const loader = new THREE.TextureLoader();
 const geometry = new THREE.IcosahedronGeometry(1, detail);
 const material = new THREE.MeshPhongMaterial({
@@ -74,7 +74,7 @@ earthGroup.add(glowMesh);
 const stars = getStarfield({numStars: 2000});
 scene.add(stars);
 
-const sunLight = new THREE.DirectionalLight(0xffffff, 4);
+const sunLight = new THREE.DirectionalLight(0xffffff, 3);
 sunLight.position.set(-2, -2, -2);
 scene.add(sunLight);
 
