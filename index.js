@@ -37,6 +37,12 @@ const material = new THREE.MeshPhongMaterial({
 const earthMesh = new THREE.Mesh(geometry, material);
 earthGroup.add(earthMesh);
 
+const wireMat=new THREE.MeshBasicMaterial({color:0xffffff, wireframe:true})
+const wireMesh=new THREE.Mesh(geometry, wireMat)
+wireMesh.scale.setScalar(1.001)
+// earthGroup.add(wireMesh)
+
+
 const lightsMat = new THREE.MeshBasicMaterial({
   map: loader.load("./textures/earthlights1k.jpg"),
   blending: THREE.AdditiveBlending,
@@ -72,6 +78,8 @@ const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
 sunLight.position.set(-2, 0.5, 1.5);
 scene.add(sunLight);
 
+
+
 earthGroup.scale.setScalar(2.5)
 
 
@@ -82,6 +90,7 @@ function animate() {
   lightsMesh.rotation.y += 0.002;
   cloudsMesh.rotation.y += 0.002;
   glowMesh.rotation.y += 0.002;
+  wireMesh.rotation.y += 0.002;
   stars.rotation.y -= 0.0002;
   controls.update()
   renderer.render(scene, camera);
@@ -97,6 +106,8 @@ function handleWindowResize () {
 
 
 window.addEventListener('resize', handleWindowResize, false);
-window.addEventListener("scroll", function(e){
-  earthGroup.scale++
+window.addEventListener("wheel", function(e){
+  earthGroup.scale.x+=0.01
+  earthGroup.scale.y+=0.01
+  earthGroup.scale.z+=0.01
 })
