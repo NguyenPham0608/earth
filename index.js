@@ -18,7 +18,7 @@ renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 const FS=true
 
 const earthGroup = new THREE.Group();
-earthGroup.rotation.z = -23.4 * Math.PI / 180;
+// earthGroup.rotation.z = -23.4 * Math.PI / 180;
 scene.add(earthGroup);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping=true
@@ -40,7 +40,7 @@ earthGroup.add(earthMesh);
 const wireMat=new THREE.MeshBasicMaterial({color:0xffffff, wireframe:true})
 const wireMesh=new THREE.Mesh(geometry, wireMat)
 wireMesh.scale.setScalar(1.001)
-earthGroup.add(wireMesh)
+// earthGroup.add(wireMesh)
 
 
 const lightsMat = new THREE.MeshBasicMaterial({
@@ -74,8 +74,8 @@ earthGroup.add(glowMesh);
 const stars = getStarfield({numStars: 2000});
 scene.add(stars);
 
-const sunLight = new THREE.DirectionalLight(0xffffff, 2.0);
-sunLight.position.set(-2, 0.5, 1.5);
+const sunLight = new THREE.DirectionalLight(0xffffff, 4);
+sunLight.position.set(-2, -2, -2);
 scene.add(sunLight);
 
 
@@ -83,7 +83,7 @@ scene.add(sunLight);
 earthGroup.scale.setScalar(2.5)
 
 
-function animate() {
+function animate(t=0) {
   requestAnimationFrame(animate);
 
   earthMesh.rotation.y += 0.002;
@@ -92,6 +92,13 @@ function animate() {
   glowMesh.rotation.y += 0.002;
   wireMesh.rotation.y += 0.002;
   stars.rotation.y -= 0.0002;
+
+  const radius = 4;
+  sunLight.position.x = Math.cos(t/10000) * radius;
+  sunLight.position.z = Math.sin(t/10000) * radius;
+
+  sunLight.lookAt(0, 0, 0);
+
   controls.update()
   renderer.render(scene, camera);
 }
