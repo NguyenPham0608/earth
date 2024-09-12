@@ -40,7 +40,7 @@ earthGroup.add(earthMesh);
 const wireMat=new THREE.MeshBasicMaterial({color:0xffffff, wireframe:true})
 const wireMesh=new THREE.Mesh(geometry, wireMat)
 wireMesh.scale.setScalar(1.001)
-earthGroup.add(wireMesh)
+// earthGroup.add(wireMesh)
 
 
 const lightsMat = new THREE.MeshBasicMaterial({
